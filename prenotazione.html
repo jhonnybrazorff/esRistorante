@@ -9,8 +9,8 @@
     
     <form action="gestioneprenotazione.php" method="POST">
         <h4>generalità</h4>
-        <input type="text" placeholder="Nome">
-        <input type="text" placeholder="cognome">
+        <input type="text" id="nome" name="nome" placeholder="Nome">
+        <input type="text" id="cognome" name="cognome" placeholder="cognome">
         <br>
         <h4>Tavolo</h4>
         <select name="tavolo" id="table">
@@ -22,13 +22,13 @@
         </select>
         <br>
         <h4>orario</h4>
-        <input type="time">
+        <input type="time" id="time">
         <br>
         <h4>note</h4>
         <textarea name="notePlusValore" id="note"></textarea>
-        <h3>antipasto</h3><input type="checkbox">
-        <h3>primo</h3><input type="checkbox">
-        <h3>secondo</h3><input type="checkbox">
+        <h3>antipasto</h3><input type="checkbox" id="antipasto">
+        <h3>primo</h3><input type="checkbox" id="primo">
+        <h3>secondo</h3><input type="checkbox" id="secondo">
         <br>
         <h2>Scelta Parcheggio</h2>
      <input type="radio" id="ParcheggioCustodito" name="sceltaParcheggio" value="ParcheggioCustodito">
