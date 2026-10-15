@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="gestioneprenotazione.php" method="POST">
+        <h4>generalità</h4>
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="cognome">
+        <br>
+        <h4>Tavolo</h4>
+        <select name="tavolo" id="table">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <h4>orario</h4>
+        <input type="time">
+        <br>
+        <h4>note</h4>
+        <textarea name="notePlusValore" id="note"></textarea>
+        <h3>antipasto</h3><input type="checkbox">
+        <h3>primo</h3><input type="checkbox">
+        <h3>secondo</h3><input type="checkbox">
+        <br>
+        <h2>Scelta Parcheggio</h2>
+     <input type="radio" id="ParcheggioCustodito" name="sceltaParcheggio" value="ParcheggioCustodito">
+     <label for="ParcheggioCustodito">Parcheggio custodito</label><br>
+     <input type="radio" id="PacheggioNonCustodito" name="sceltaParcheggio" value="PacheggioNonCustodito">
+     <label for="PacheggioNonCustodito">PacheggioNonCustodito</label><br>
+     <input type="radio" id="NessunParcheggio" name="sceltaParcheggio" value="NessunParcheggio">
+     <label for="NessunParcheggio">NessunParcheggio</label>
+        <br>    
+     <input type="submit" placeholder="Invia">
+
+    </form>
+
+
+</body>
+</html>
