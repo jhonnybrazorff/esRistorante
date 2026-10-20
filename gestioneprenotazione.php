@@ -6,7 +6,7 @@ $table = $_POST["table"] ?? "";
 $time = $_POST["time"] ?? "";
 $notePlusValore = $_POST["notePlusValore"] ?? "";
 // $nome = $_POST["nome"] ?? "";
-$sceltaParcheggio = $_POST["sceltaParcheggio"] ?? "";
+$sceltaParcheggio = $_POST["sceltaParcheggio"] ?? null;
 
 $camerieri = ["rocco", "Sasha", "Gianni", "Lindo", "Emma"];
 
@@ -15,7 +15,7 @@ $prezzo_secondo = 6;
 $prezzo_antipasto = 7;
 $parcheggio_non_custodito = 3;
 $parcheggio_custodito = 5;
-$cameriere = $cameriere[rand(0,4)];
+$cameriere = $camerieri[rand(0,4)];
 
 
 
@@ -27,12 +27,14 @@ function calcolo_prezzo_menu(){
 
 function prezzo_parcheggio(){
 
-if($sceltaParcheggio == "ParcheggioCustodito"){
+global $sceltaParcheggio,$parcheggio_custodito,$parcheggio_non_custodito;
+
+if($sceltaParcheggio === "ParcheggioCustodito"){
     return $parcheggio_custodito;
-}elseif($sceltaParcheggio == "ParcheggioNonCustodito"){
+}elseif($sceltaParcheggio === "ParcheggioNonCustodito"){
     return $parcheggio_non_custodito;
 }else{
-    return "NessunParcheggio";
+    return 0;
 }
 
 }
@@ -40,6 +42,7 @@ if($sceltaParcheggio == "ParcheggioCustodito"){
 
 function calcolo_prezzo_finale(){
 
+return calcolo_prezzo_menu() + prezzo_parcheggio();
 
 
 }
@@ -57,17 +60,17 @@ function calcolo_prezzo_finale(){
   <tr>
     <th>cameriere</th>
     <th>Parcheggio</th>
-    <th>Country</th>
+    <th>Ordine</th>
   </tr>
   <tr>
     <td><?php echo $cameriere ?></td>
     <td><?php echo $sceltaParcheggio ?></td>
-    <td>Germany</td>
+    <td><?php echo $primo ?></td>
 </tr>
 <tr>
     <td><?php echo "//" ?></td>
-    <td><?php echo prezzo_parcheggio . "$" ?></td>
-    <td>Mexico</td>
+    <td><?php echo prezzo_parcheggio() . "$" ?></td>
+    <td><?php echo $secondo ?></td>
   </tr>
 </table>
 </body>
