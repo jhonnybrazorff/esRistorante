@@ -3,6 +3,9 @@
 $nome = $_POST["nome"] ?? "";
 $cognome = $_POST["cognome"] ?? "";
 $table = $_POST["table"] ?? "";
+$primo = $_POST["primo"] ?? null;
+$secondo = $_POST["secondo"] ?? null;
+$antipasto = $_POST["antipasto"] ?? null;
 $time = $_POST["time"] ?? "";
 $notePlusValore = $_POST["notePlusValore"] ?? "";
 // $nome = $_POST["nome"] ?? "";
@@ -56,21 +59,36 @@ return calcolo_prezzo_menu() + prezzo_parcheggio();
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table border = "1">
   <tr>
+    <th>generalità</th>
     <th>cameriere</th>
     <th>Parcheggio</th>
     <th>Ordine</th>
+    <th>ora ordine</th>
+    <th>tavolo</th>
+    <th>note</th>
+    <th>prezzo finale</th>
   </tr>
   <tr>
+    <td><?php echo $nome ?></td>
     <td><?php echo $cameriere ?></td>
     <td><?php echo $sceltaParcheggio ?></td>
     <td><?php echo $primo ?></td>
+    <td><?php echo $time ?></td>
+    <td><?php echo $table ?></td>
+    <td><?php echo $notePlusValore ?></td>
+    <td><?php echo calcolo_prezzo_finale() ?></td>
 </tr>
 <tr>
+    <td><?php echo $cognome ?></td>
     <td><?php echo "//" ?></td>
     <td><?php echo prezzo_parcheggio() . "$" ?></td>
     <td><?php echo $secondo ?></td>
+    <td><?php echo "//" ?></td>
+    <td><?php echo "//" ?></td>
+    <td><?php echo "//" ?></td>
+    <td><?php echo "//" ?></td>
   </tr>
 </table>
 </body>
