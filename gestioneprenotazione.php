@@ -24,7 +24,26 @@ $cameriere = $camerieri[rand(0,4)];
 
 function calcolo_prezzo_menu(){
 
+global $prezzo_antipasto, $prezzo_primo, $prezzo_secondo, $primo,$secondo,$antipasto;
 
+if($primo == "primo" && $secondo == "secodo" && $antipasto == "antipasto"){
+    return ($prezzo_antipasto + $prezzo_primo + $prezzo_secondo) * 0.85;
+}
+elseif($primo == "primo" && $secondo == "secondo"){
+    return ($prezzo_primo + $prezzo_secondo) * 0.90;
+}elseif($primo == "primo" && $antipasto == "antipasto"){
+    return $prezzo_primo + $prezzo_antipasto;
+
+}elseif($primo == "primo"){
+    return $prezzo_primo;
+}elseif($secondo == "secondo" && $antipasto == "antipasto"){
+    return $prezzo_secondo + $prezzo_antipasto;
+
+}elseif($secondo == "secondo"){
+    return $prezzo_secondo;
+}else{
+    return -1;
+}
 
 }
 
@@ -44,11 +63,21 @@ if($sceltaParcheggio === "ParcheggioCustodito"){
 
 
 function calcolo_prezzo_finale(){
+global $time;
 
+if(calcolo_prezzo_menu() == -1){
+    echo "Non puoi non selezionare pasti o soltanto antipasto";
+    
+    echo "orario: " . $time;
+
+    echo " <a href='http://localhost/esRistorante/esRistorante/prenotazione.html'>torna indietro</a><button></button>";
+}
 return calcolo_prezzo_menu() + prezzo_parcheggio();
 
 
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -59,6 +88,7 @@ return calcolo_prezzo_menu() + prezzo_parcheggio();
     <title>Document</title>
 </head>
 <body>
+   
     <table border = "1">
   <tr>
     <th>generalità</th>
@@ -70,6 +100,7 @@ return calcolo_prezzo_menu() + prezzo_parcheggio();
     <th>note</th>
     <th>prezzo finale</th>
   </tr>
+
   <tr>
     <td><?php echo $nome ?></td>
     <td><?php echo $cameriere ?></td>
@@ -80,6 +111,7 @@ return calcolo_prezzo_menu() + prezzo_parcheggio();
     <td><?php echo $notePlusValore ?></td>
     <td><?php echo calcolo_prezzo_finale() ?></td>
 </tr>
+
 <tr>
     <td><?php echo $cognome ?></td>
     <td><?php echo "//" ?></td>
